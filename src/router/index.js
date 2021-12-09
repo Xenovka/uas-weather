@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import Home from "../views/Home.vue";
-import WeatherByCity from "../components/WeatherByCity.vue";
+import CurrentWeather from "../components/CurrentWeather.vue";
 import HourlyForecast from "../components/HourlyForecast.vue";
 
 const routes = [
@@ -11,8 +11,8 @@ const routes = [
     component: Home
   },
   {
-    path: "/city-weather",
-    component: WeatherByCity
+    path: "/current-weather",
+    component: CurrentWeather
   },
   {
     path: "/hourly-forecast",
