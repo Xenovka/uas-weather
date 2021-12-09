@@ -1,5 +1,7 @@
 <template>
-  <h1>HEHE</h1>
+  <div class="container p-4 text-center">
+    <h1>Weather App</h1>
+  </div>
 </template>
 
 <script>
