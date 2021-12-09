@@ -4,12 +4,12 @@
       <input type="text" v-model="input" ref="inputform" />
       <button type="submit" @click.prevent="getWeatherData">Search</button>
     </form>
-    <div class="content__wrapper" v-if="weatherCondition">
-      <h1 class="text-center mt-5">{{ weatherLocation }}</h1>
+    <div class="content__wrapper" v-if="currWeather">
+      <h1 class="text-center mt-5">Current Weather of {{ weatherLocation }}</h1>
       <div class="row">
         <div class="col-lg-4">
-          <h4>Condition</h4>
-          <p>{{ weatherCondition }}</p>
+          <h4>Weather</h4>
+          <p>{{ currWeather }}</p>
         </div>
         <div class="col-lg-4">
           <h4>Temperature</h4>
@@ -17,7 +17,7 @@
         </div>
         <div class="col-lg-4">
           <h4>Visibility</h4>
-          <p>{{ visibility }}metres</p>
+          <p>{{ visibility }} metres</p>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@ import { API_KEY } from "../config.json";
 export default {
   data() {
     return {
-      weatherCondition: "",
+      currWeather: "",
       weatherLocation: "",
       temperature: 0,
       visibility: 0,
@@ -46,7 +46,7 @@ export default {
         const data = await response.json();
 
         this.weatherLocation = data["name"];
-        this.weatherCondition = data["weather"][0]["main"];
+        this.currWeather = data["weather"][0]["main"];
         this.temperature = (data["main"]["temp"] - 273.15).toFixed(1);
         this.visibility = data["visibility"];
 
