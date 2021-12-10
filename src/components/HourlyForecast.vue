@@ -14,6 +14,10 @@
         </div>
       </div>
     </div>
+    <div v-if="!isFound">
+      Oops... Something went wrong! <br />
+      Weather or Location is not Found!
+    </div>
   </div>
 </template>
 
@@ -24,10 +28,12 @@ export default {
   data() {
     return {
       input: "",
+      inputform: null,
       weatherCondition: [],
       forecastTime: [],
       temperature: [],
-      weatherLocation: ""
+      weatherLocation: "",
+      isFound: true
     };
   },
   methods: {
@@ -54,6 +60,14 @@ export default {
       try {
         const request = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.input}&appid=${API_KEY}`);
         const data = await request.json();
+
+        if (!request.ok) {
+          this.isFound = false;
+          this.$refs.inputform.value = "";
+          throw new Error("Failed to fetch data from API");
+        } else {
+          this.isFound = true;
+        }
 
         this.getWeatherData(data["coord"]["lat"], data["coord"]["lon"]);
         this.$refs.inputform.value = "";

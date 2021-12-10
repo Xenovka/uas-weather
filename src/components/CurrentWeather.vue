@@ -22,7 +22,10 @@
         </div>
       </div>
     </div>
-    <div v-if="!isFound">Oops... Weather or Location is not Found!</div>
+    <div v-if="!isFound">
+      Oops... Something went wrong! <br />
+      Weather or Location is not Found!
+    </div>
   </div>
 </template>
 
@@ -37,6 +40,7 @@ export default {
       visibility: 0,
       wSpeed: 0,
       input: "",
+      inputform: null,
       isCelcius: true,
       isFahrenheit: false,
       isKelvin: false,
@@ -56,6 +60,7 @@ export default {
 
         if (!response.ok) {
           this.isFound = false;
+          this.$refs.inputform.value = "";
           throw new Error("Failed to fetch data");
         } else {
           this.isFound = true;
