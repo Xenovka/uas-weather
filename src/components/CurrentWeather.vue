@@ -1,7 +1,7 @@
 <template>
   <div class="container p-4 text-center">
     <form @submit.prevent="getWeatherData">
-      <input type="text" v-model="input" ref="inputform" />
+      <input type="text" v-model="input" />
       <button type="submit" @click.prevent="getWeatherData">Search</button>
     </form>
     <div class="content__wrapper" v-if="weatherLocation">
@@ -40,7 +40,6 @@ export default {
       visibility: 0,
       wSpeed: 0,
       input: "",
-      inputform: null,
       isCelcius: true,
       isFahrenheit: false,
       isKelvin: false,
@@ -73,8 +72,6 @@ export default {
         this.temperature = (data["main"]["temp"] - 273.15).toFixed(1);
         this.visibility = data["visibility"];
         this.wSpeed = data["wind"]["speed"];
-
-        this.$refs.inputform.value = "";
 
         return data["main"]["temp"];
       } catch (err) {
