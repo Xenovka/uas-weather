@@ -5,7 +5,7 @@
       <button type="submit" @click.prevent="getWeatherData">Search</button>
     </form>
     <div class="content__wrapper" v-if="currWeather">
-      <h1 class="text-center mt-5">Current Weather of {{ weatherLocation }}</h1>
+      <h1 class="text-center mt-5">Current Weather in {{ weatherLocation }}</h1>
       <div class="row">
         <div class="col-lg-4">
           <h4>Weather</h4>

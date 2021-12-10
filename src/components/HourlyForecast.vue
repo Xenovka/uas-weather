@@ -5,7 +5,7 @@
       <button type="submit" @click.prevent="getCoords">Search</button>
     </form>
     <div class="content__wrapper" v-if="weatherLocation">
-      <h1 class="text-center mt-5 mb-4">Hourly Weather Forecast of {{ weatherLocation }}</h1>
+      <h1 class="text-center mt-5 mb-4">Hourly Weather Forecast in {{ weatherLocation }}</h1>
       <div class="row">
         <div class="col-lg-3" v-for="(w, i) in weatherCondition" :key="i">
           <p>{{ w }}</p>
