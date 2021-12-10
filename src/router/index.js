@@ -4,11 +4,13 @@ import Home from "../views/Home.vue";
 import CurrentWeather from "../components/CurrentWeather.vue";
 import HourlyForecast from "../components/HourlyForecast.vue";
 import TodayForecast from "../components/TodayForecast.vue";
+import NotFound from "../views/NotFound.vue";
 
 const routes = [
   {
     path: "/",
     name: "Home",
+    alias: ["/home", "/welcome"],
     component: Home
   },
   {
@@ -22,6 +24,10 @@ const routes = [
   {
     path: "/today-forecast",
     component: TodayForecast
+  },
+  {
+    path: "/:notFound(.*)",
+    component: NotFound
   }
 ];
 
