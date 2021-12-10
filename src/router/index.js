@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import CurrentWeather from "../components/CurrentWeather.vue";
 import HourlyForecast from "../components/HourlyForecast.vue";
+import TodayForecast from "../components/TodayForecast.vue";
 
 const routes = [
   {
@@ -17,6 +18,10 @@ const routes = [
   {
     path: "/hourly-forecast",
     component: HourlyForecast
+  },
+  {
+    path: "/today-forecast",
+    component: TodayForecast
   }
 ];
 
